@@ -8,3 +8,7 @@ export const Redirect: React.FC<{ to: string }> = ({ to }) => {
   });
   return null;
 };
+
+
+
+export * from './hooks/fileReader'
