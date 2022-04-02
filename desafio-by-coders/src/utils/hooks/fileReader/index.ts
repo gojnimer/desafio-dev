@@ -19,7 +19,7 @@ const processCNAB = (cnabTxt: Blob): Promise<Array<ICnabValues | string>> =>
             ownerDocument: line.substring(19, 30),
             bankCard: line.substring(30, 42),
             timestamp: line.substring(42, 48),
-            shopOwnerName: line.substring(48, 62).trim(),
+            shopName: line.substring(48, 62).trim(),
             ownerName: line.substring(62, 81).trim(),
           };
         });
