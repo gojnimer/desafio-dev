@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import { Modal } from "../../components";
 
 interface IUseModalHelper {
@@ -17,7 +17,6 @@ export const useModalHelper: IFModalHelper = (props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const render = (children?: ReactNode) => (
     <Modal
-      closeHandler={() => setIsOpen(false)}
       {...{ isOpen, ...props }}
     >
       {children}
@@ -25,7 +24,7 @@ export const useModalHelper: IFModalHelper = (props) => {
   );
   return {
     render,
-    closeModal: () => setIsOpen(false),
-    openModal: () => setIsOpen(true),
+    closeModal: () => isOpen && setIsOpen(false),
+    openModal: () => !isOpen && setIsOpen(true),
   };
 };
