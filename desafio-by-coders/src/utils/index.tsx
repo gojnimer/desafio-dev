@@ -9,6 +9,7 @@ export const Redirect: React.FC<{ to: string }> = ({ to }) => {
   return null;
 };
 
+export const prettifyCpf = (cpf: string) =>
+  cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "$1.$2.$3-$4");
 
-
-export * from './hooks/fileReader'
+export * from "./hooks/fileReader";
