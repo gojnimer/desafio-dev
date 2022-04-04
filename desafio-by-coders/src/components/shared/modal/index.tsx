@@ -29,6 +29,6 @@ export const Modal: React.FC<{
         </LightBox>
       )}
     </AnimatePresence>,
-    document.getElementById("root") as any
+    document.getElementById("modal__root") as any
   );
 };

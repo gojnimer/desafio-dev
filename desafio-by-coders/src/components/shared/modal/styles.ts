@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const ModalContainer = styled(motion.div)`
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 3px;
   margin: 0;
   position: relative;
   top: 10%;
