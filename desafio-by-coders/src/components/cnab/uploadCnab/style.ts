@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const Container = styled(motion.div)<{ $isModal?: boolean }>`
-  ${({$isModal}) => $isModal ? 'width: 70vw;' : ''}
-  height: ${({$isModal}) => $isModal ? '70vh' : '87vh'};
+  ${({ $isModal }) => ($isModal ? "width: 70vw;" : "")}
+  height: ${({ $isModal }) => ($isModal ? "70vh" : "87vh")};
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto 1fr auto;
@@ -13,8 +13,7 @@ const Container = styled(motion.div)<{ $isModal?: boolean }>`
     flex: 1 1 100%;
     padding: 2.5%;
     width: 95vw;
-    height: ${({$isModal}) => $isModal ? '70vh' : '97vh'};
-    
+    height: ${({ $isModal }) => ($isModal ? "70vh" : "97vh")};
   }
 `;
 
@@ -31,10 +30,10 @@ const Title = styled.span`
   font-weight: bold;
 `;
 
-const FileContainer = styled.div<{ $isFileHovering: boolean }>`
+const FileContainer = styled.div`
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 3px;
 
   display: grid;
   grid-template-columns: auto;
@@ -52,7 +51,7 @@ const FileContainer = styled.div<{ $isFileHovering: boolean }>`
         right top 15px;
     }
   }
-
+  animation: border-dance 1s infinite linear;
   background-image: linear-gradient(90deg, #ccc 50%, transparent 50%),
     linear-gradient(90deg, #ccc 50%, transparent 50%),
     linear-gradient(0deg, #ccc 50%, transparent 50%),
@@ -60,12 +59,6 @@ const FileContainer = styled.div<{ $isFileHovering: boolean }>`
   background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
   background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
   background-position: left top, right bottom, left bottom, right top;
-  ${({ $isFileHovering }) =>
-    !$isFileHovering
-      ? `
-  animation: border-dance 1s infinite linear;
-  `
-      : ""}
 `;
 
 const Icon = styled.i`
@@ -138,13 +131,14 @@ const CloseButton = styled(motion.button)`
   }
 `;
 
-const Button = styled(motion.button)<{ deleteButton?: boolean }>`
+const Button = styled(motion.button)<{ $isDeleteButton?: boolean }>`
   background-color: transparent;
-  border: ${({ deleteButton }) => (deleteButton ? "red" : "#03a9f4")} solid 1px;
+  border: ${({ $isDeleteButton }) => ($isDeleteButton ? "red" : "#03a9f4")}
+    solid 1px;
   width: 20%;
   padding: 0.5%;
   font-size: 16px;
-  color: ${({ deleteButton }) => (deleteButton ? "red" : "#03a9f4")};
+  color: ${({ $isDeleteButton }) => ($isDeleteButton ? "red" : "#03a9f4")};
   font-weight: bold;
   justify-self: end;
   border-radius: 5px;
@@ -166,5 +160,5 @@ export {
   Button,
   Header,
   Title,
-  AsideContainer,
+  AsideContainer
 };
