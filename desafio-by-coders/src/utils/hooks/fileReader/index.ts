@@ -4,7 +4,7 @@ import { ICnabStoreValues, ICnabValues } from "../../../interfaces";
 
 const processCNAB = (cnabTxt: Blob): Promise<Array<ICnabValues | string>> =>
   new Promise((resolve, reject) => {
-    if (cnabTxt.type !== "text/plain") reject();
+    if (cnabTxt.type !== "text/plain") reject((cnabTxt as any).name);
     const reader = new FileReader();
     reader.onload = async (e) => {
       const text = e.target?.result;
@@ -27,7 +27,7 @@ const processCNAB = (cnabTxt: Blob): Promise<Array<ICnabValues | string>> =>
         });
       if (conversion?.filter((x) => typeof x !== "string").length)
         resolve(conversion);
-      reject();
+      reject((cnabTxt as any).name);
     };
     reader.readAsText(cnabTxt);
   });
