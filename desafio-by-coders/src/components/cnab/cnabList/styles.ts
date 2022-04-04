@@ -3,13 +3,12 @@ import styled from "styled-components";
 
 const List = styled.div`
   width: 100%;
-  justify-self: center;
-  max-height: 80vh;
+  max-height: 100%;
   display: grid;
   gap: 15px 0;
-  overflow-y: auto;
+  padding: 1%;
   overflow: hidden auto;
-  padding: 5px;
+
   &::-webkit-scrollbar {
     width: 2px; /* width of the entire scrollbar */
   }
@@ -56,7 +55,7 @@ const TextWrapper = styled.div`
 
 const ListItem = styled(motion.div)`
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 3px;
   border: 1px solid #ccc;
   width: 100%;
   max-height: 160px;
@@ -75,7 +74,7 @@ const ListItem = styled(motion.div)`
 
 const SelectedItemContainer = styled(motion.div)`
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 3px;
   padding: 2%;
   width: 90%;
   position: relative;

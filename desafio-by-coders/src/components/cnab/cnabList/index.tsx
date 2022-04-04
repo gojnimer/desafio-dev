@@ -62,7 +62,7 @@ export const CnabList: React.FC<IList> = ({ data }) => {
 
       <AnimatePresence>
         {selectedItem !== undefined && (
-          <LightBox onClick={() => setSelectedItem(undefined)}>
+          <LightBox data-testid='lightbox-cnab-list' onClick={() => setSelectedItem(undefined)}>
             <SelectedItemContainer
               onClick={(e) => {
                 e.preventDefault();
