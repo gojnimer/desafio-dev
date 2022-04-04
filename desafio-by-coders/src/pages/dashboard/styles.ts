@@ -4,8 +4,13 @@ import styled from "styled-components";
 const Container = styled.div`
   display: grid;
   grid-template-columns: auto;
+  grid-template-rows: auto 1fr auto;
   grid-gap: 10px 10px;
   padding: 3%;
+  height: 100vh;
+`;
+
+const LoaderContainer = styled.div`
   height: 100vh;
 `;
 
@@ -13,18 +18,21 @@ const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
+  gap: 0 10px;
 `;
 
-const UploadButton = styled(motion.button)`
+const UploadButton = styled(motion.button)<{ $isDeleteButton?: boolean }>`
   background-color: transparent;
-  border: #03a9f4 solid 1px;
+  border: ${({ $isDeleteButton }) => ($isDeleteButton ? "red" : "#03a9f4")}
+    solid 1px;
   width: 20%;
   padding: 0.5%;
   font-size: 16px;
-  color: #03a9f4;
+  color: ${({ $isDeleteButton }) => ($isDeleteButton ? "red" : "#03a9f4")};
   font-weight: bold;
   border-radius: 5px;
-  flex: 0 1 13%;
+  max-height: 50px;
+  flex: 0 0 13%;
   cursor: pointer;
   @media (max-width: 796px) {
     flex: 1 1 100%;
@@ -48,4 +56,11 @@ const Title = styled.span`
   flex: 1 1 100%;
 `;
 
-export { Container, UploadButton, ButtonWrapper, Title, TitleWrapper};
+export {
+  Container,
+  UploadButton,
+  ButtonWrapper,
+  Title,
+  TitleWrapper,
+  LoaderContainer,
+};
