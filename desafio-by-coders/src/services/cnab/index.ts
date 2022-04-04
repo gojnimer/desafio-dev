@@ -8,3 +8,13 @@ export const fetchStoreList = async (options: {
 }): Promise<AxiosResponse<ICnabValues[]>> => {
   return await axios.get(`${api}/cnab`, { ...options });
 };
+
+export const postTransactions = async (
+  body: ICnabValues[]
+): Promise<AxiosResponse<ICnabValues[]>> => {
+  return await axios.post(`${api}/cnab`, body);
+};
+
+export const clearStoreList = async (): Promise<AxiosResponse<ICnabValues[]>> => {
+  return await axios.delete(`${api}/cnab/clear`);
+};
