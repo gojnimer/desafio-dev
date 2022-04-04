@@ -7,6 +7,7 @@ import { IReturnSnackbarHelper } from "../../interfaces";
 
 type IFSnackbarHelper = () => IReturnSnackbarHelper;
 
+// Created only for error displaying, not a full functional hook.
 export const useSnackbarHelper: IFSnackbarHelper = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [message, setMessage] = useState<string>();

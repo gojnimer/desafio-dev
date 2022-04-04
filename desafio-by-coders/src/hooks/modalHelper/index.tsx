@@ -1,23 +1,17 @@
 import { ReactNode, useState } from "react";
 import { Modal } from "../../components";
+import { IReturnModalHelper } from "../../interfaces";
 
-interface IUseModalHelper {
-  ignoreOutsideClick?: boolean;
-}
 
-interface IReturnModalHelper {
-  render(children?: ReactNode): ReactNode;
-  closeModal(): void;
-  openModal(): void;
-}
 
-type IFModalHelper = (props?: IUseModalHelper) => IReturnModalHelper;
+type IFModalHelper = () => IReturnModalHelper;
 
-export const useModalHelper: IFModalHelper = (props) => {
+// Created only for component displaying, not a full functional hook.
+export const useModalHelper: IFModalHelper = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const render = (children?: ReactNode) => (
     <Modal
-      {...{ isOpen, ...props }}
+      {...{ isOpen }}
     >
       {children}
     </Modal>
