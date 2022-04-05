@@ -1,7 +1,7 @@
 
 # Desafio Dev - By Coders
 
-Minha versão do desafio disponibilizado pela equipe do by coders, sendo a tarefa dos mesmo criar uma interface web que consome uma API para a visualização/manipulação/registro de arquivos CNAB
+Minha versão do desafio disponibilizado pela equipe do by coders, sendo a tarefa do mesmo criar uma interface web que consome uma API para a visualização/manipulação/registro de arquivos CNAB
 
 
 ## Links
